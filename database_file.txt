@@ -1,0 +1,44 @@
+create table leave_management_department(
+id int not null auto_increment,
+department nvarchar(255) not null,
+primary key(id));
+
+select * from leave_management_department  
+
+create table leave_management_leave(
+id int not null auto_increment,
+leaveType nvarchar(255) not null,
+primary key(id)
+);
+
+select * from leave_management_leave
+
+create table leave_management_employee(
+id int not null auto_increment,
+name nvarchar(255) not null,
+email nvarchar(255) not null,
+mob int(15)  not null,
+password nvarchar(255) not null,
+dept_id int(10) not null,
+address nvarchar(255) not null,
+DOB nvarchar(50) not null,
+role int(10) not null,
+primary key(id)
+);
+
+select * from leave_management_employee
+
+create table leave_management_employee_new(
+id int not null auto_increment,
+name nvarchar(255) ,
+email nvarchar(255) ,
+mob nvarchar(255),
+password nvarchar(255) ,
+dept_id nvarchar(255) ,
+address nvarchar(255) ,
+DOB nvarchar(50) ,
+role int(10) ,
+primary key(id)
+);
+
+select * from leave_management_employee_new
