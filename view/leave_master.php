@@ -28,12 +28,17 @@ echo"<a href='../view/add_leave.php'>click here</a>";
             echo "<tr>";
             echo "<td>id</td>";
             echo "<td>leave type</td>";
+            echo "<td>modify</td>";
+            echo "<td>delete</td>";
             echo "</tr>";
 
             foreach ($data as $row) {
                 echo "<tr>";
                 echo "<td>" . $row['id'] . "</td>";
                 echo "<td>" . $row['leaveType'] . "</td>";
+                echo 
+                "<td><a href='../view/modify_leave.php?id=" . $row['id'] . "'>modify</a></td>";
+                echo "<td><a href=''>delete</a></td>";
                 echo "</tr>";
             }
 

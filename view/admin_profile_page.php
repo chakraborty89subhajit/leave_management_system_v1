@@ -15,10 +15,14 @@ echo"admin profile page<br>";
 
       if($role==1){
       	echo"loging as admin<br>";
-      }
+      
+
+      
+}else{
+     echo"loging in as employee roll<br>";
+}
 
       echo"<a href='../view/dept_master.php'>department master</a><br>";
       echo"<a href='../view/employee_master.php'>employee master</a><br>";
       echo"<a href='../view/leave_master.php'>leave master</a><br>";
-
 ?>
