@@ -38,7 +38,7 @@ echo"<a href='../view/add_leave.php'>click here</a>";
                 echo "<td>" . $row['leaveType'] . "</td>";
                 echo 
                 "<td><a href='../view/modify_leave.php?id=" . $row['id'] . "'>modify</a></td>";
-                echo "<td><a href=''>delete</a></td>";
+                echo "<td><a href='../view/delete_leave.php?id=".$row['id']."'>delete</a></td>";
                 echo "</tr>";
             }
 

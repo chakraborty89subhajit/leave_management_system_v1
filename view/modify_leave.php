@@ -12,7 +12,7 @@ $proposed_leave=$_POST['proposed_leave_type'];
 if($role==1){
 	echo "welcome to modify leave<br>";
 	//echo $id;
-echo $proposed_leave."<br>";
+echo "previous leave type is now chenged to: ".$proposed_leave."<br>";
 $str="update leave_management_leave set leaveType = :proposed_leave where id = :id";
 //echo $str;
 try{
