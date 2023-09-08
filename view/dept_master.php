@@ -32,8 +32,8 @@ try{
                 echo "<td>" . $row['id'] . "</td>";
                 echo "<td>" . $row['department'] . "</td>";
                 echo 
-                "<td><a href='../view/?id=" . $row['id'] . "'>modify</a></td>";
-                echo "<td><a href='../view/d?id=".$row['id']."'>delete</a></td>";
+                "<td><a href='../view/modify_dept.php?id=" . $row['id'] . "'>modify</a></td>";
+                echo "<td><a href='../view/delete_dept.php?id=".$row['id']."'>delete</a></td>";
                 echo "</tr>";
             }
 

@@ -1,4 +1,5 @@
 <?php
+include '../db.php';
 session_start();
 
 echo"admin profile page<br>";
@@ -13,12 +14,21 @@ echo"admin profile page<br>";
 
       echo "welcome ".$employee_name."<br>";
 
-      if($role==1){
-      	echo"loging as admin<br>";
+     // if($role==1){
+      	//echo"loging as admin<br>";
       
+$stmt=$db->prepare("select department from leave_management_department where id = :id");
+$stmt->bindparam(':id',$role);
+$stmt->execute();
+if($stmt->rowcount()>0){
+     $data=$stmt->fetchAll(PDO::FETCH_ASSOC);
+     foreach($data as $row){
+         echo $row['department'].' dept.  <br>';
+     }
 
+}
       
-}else{
+else{
      echo"loging in as employee roll<br>";
 }
 
