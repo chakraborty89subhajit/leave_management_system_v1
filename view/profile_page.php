@@ -1,4 +1,6 @@
 <?php
+include '../db.php';
+
 session_start();
 echo"welcome to profile page <br>";
 //if(isset($_SESSION['username'])){
@@ -15,5 +17,26 @@ echo"welcome to profile page <br>";
 
       echo "welcome ".$employee_name."<br>";
 
-        
+//displaying the employee depatment from database using  dept_id
+
+$stmt=$db->prepare("select department from leave_management_department where id = :id ");
+$stmt->bindparam(':id',$dept_id);
+$stmt->execute();
+if($stmt->rowcount()>0){
+
+      $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+       foreach ($data as $row ){
+
+            echo "department name : " .$row['department']."<br>";
+       }
+
+      
+      //echo "<pre>";
+        //          print_r($data);
+}
+    
+
+
+
+
 ?>
