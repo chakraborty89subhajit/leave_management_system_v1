@@ -35,4 +35,5 @@ else{
       echo"<a href='../view/dept_master.php'>department master</a><br>";
       echo"<a href='../view/employee_master.php'>employee master</a><br>";
       echo"<a href='../view/leave_master.php'>leave master</a><br>";
+      echo"<a href='../view/leave_application.php'>leave application</a><br>"
 ?>

@@ -1,49 +1,18 @@
 <?php
+
 include '../db.php';
 
 session_start();
-echo"welcome to profile page <br>";
-//if(isset($_SESSION['username'])){
-//echo"welcome  ".$_SESSION['username']."<br>"
-//.$_SESSION['dept_id']."<br>".$_SESSION['role']."<br>".$_SESSION['id']."<br>";
-      
-      $employee_name= $_SESSION['username'];
-      $dept_id= $_SESSION['dept_id'];
-      $role= $_SESSION['role'];
-      $id=$_SESSION['id'];
+
+$role= $_SESSION['role'];
+
+if($role==1){
+	$stmt=$db->prepare("select * from leave_management_leave_application");
+	$stmt->execute();
 
 
-      echo "employee basic details<br>";
-
-      echo "welcome ".$employee_name."<br>";
-
-//displaying the employee depatment from database using  dept_id
-
-$stmt=$db->prepare("select department from leave_management_department where id = :id ");
-$stmt->bindparam(':id',$dept_id);
-$stmt->execute();
-if($stmt->rowcount()>0){
-
-      $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
-       foreach ($data as $row ){
-
-            echo "department name : " .$row['department']."<br>";
-       }
-
-      
-      //echo "<pre>";
-        //          print_r($data);
-}
-    
-echo"<a href='../view/add_leave_application.php'>add leave appliaction</a>";
-
-$stmt1 = $db->prepare("select id, leave_id, start_date, end_date, status from leave_management_leave_application where emp_id = :id");
-$stmt1->bindparam(':id',$id);
-$stmt1->execute();
-
-
-            if($stmt1->rowcount()>0){
-                  $data= $stmt1->fetchAll(PDO::FETCH_ASSOC);
+            if($stmt->rowcount()>0){
+                  $data= $stmt->fetchAll(PDO::FETCH_ASSOC);
                   //echo "<pre>";
                   //print_r($data);
             
@@ -54,6 +23,7 @@ $stmt1->execute();
             echo "<td>start_date</td>";
             echo "<td>end_date</td>";
             echo "<td>status</td>";
+             echo "<td>modify</td>";
             echo "</tr>";
 
             foreach ($data as $row) {
@@ -75,11 +45,14 @@ if($stmt3->rowcount()>0){
                 echo "<td>".$row['start_date']."</td>";
                 echo "<td>".$row['start_date']."</td>" ;
                 echo "<td>".$row['status']."</td>" ;
+                  echo 
+                "<td><a href='../view/modify_leave_application.php?id=" . $row['id'] . "'>modify</a></td>";
                 echo "</tr>";
             }
 
             echo "</table>";
 
 }
-
+}
+echo"<a href='../view/admin_profile_page.php'>back</a><br>";
 ?>
